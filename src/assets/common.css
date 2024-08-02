@@ -33,6 +33,7 @@
     /* 여백 */
     --xxs-bottom: 0.5rem;/*8px*/
     --xs-bottom: 1rem;/*16px*/
+    --s-bottom:1.75rem;/*28px*/
     --small-bottom: 2.5rem;/*40px*/
     --regular-bottom: 3.75rem;/*60px*/
     --medium-bottom: 5rem;/*80px*/
