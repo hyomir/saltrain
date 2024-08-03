@@ -1,31 +1,33 @@
 <template>
-<div id="about">
-            <v-container class="about_goal md fluid" >
-                <!-- brand goal -->
-                <div class="about_goal_cont">
-                    <div class="about_goal_left">
-                        <img src="@/assets/about_01.jpg" class="about_01_img">
-                    </div>
-
-                <div class="about_goal_right">
-                    <h2>BRAND GOAL</h2>
-                    <p class="dc_txt about_box_01">&#39; KEEP IT CLOSE &#39;</p>
-                    <p class="txt_01">국내산 프리미엄 소금 &#39;그레이 솔트&#39; 토판염 기반의 라이프스타일 브랜드</p>
-                    <p class="saltrain_logo dc_txt">Saltrain</p>
-                    <p class="txt_02 line_h">  
-                        먹을 수 있는 소금을 바탕으로 한 라이프스타일 프로덕트를 보다 &#39;더 가까이에서&#39; <br>
-                        즐길 수 있도록 돕는 것은 변함없는 솔트레인의 목표입니다&#46;
-                    </p>
-                    <img src="@/assets/about_02.jpg" class="about_02_img">
-                 </div>
-                </div>
+    <div id="about">
+        <v-main class="v_main">
+            <v-container class="about_goal">
+                <v-row class="d-flex about_goal_cont">
+                    <v-col xs="12" sm="6" md="6">
+                            <img src="@/assets/about_01.jpg" class="about_01_img">
+                    </v-col>
+                    <v-col xs="12" sm="6" md="6" class="about_goal_right align-self-center">
+                            <h2>BRAND GOAL</h2>
+                            <div class="txt_wrap">
+                            <p class="dc_txt about_box_01">&#39; KEEP IT CLOSE &#39;</p>
+                            </div>
+                            <p class="txt_01">국내산 프리미엄 소금 &#39;그레이 솔트&#39; 토판염 기반의 라이프스타일 브랜드</p>
+                            <p class="saltrain_logo dc_txt">Saltrain</p>
+                            <p class="txt_02 line_h">  
+                                먹을 수 있는 소금을 바탕으로 한 <br> 라이프스타일 프로덕트를 보다 &#39;더 가까이에서&#39;<br>
+                                즐길 수 있도록 돕는 것은 변함없는 솔트레인의 목표입니다&#46;
+                            </p>
+                            <img src="@/assets/about_02.jpg" class="about_02_img">
+                    </v-col>
+                </v-row>
             </v-container>
 
-            
-
             <!-- brand value -->
-            <v-container class="about_value fluid">
-                <div class="about_value_cover"></div>
+            <v-container fluid>
+                <v-row>
+                    <v-col xs="12">
+                    <div class="about_value">
+                    <div class="about_value_cover"></div>
                     <div class="about_value_cont">
                         <h2>BRAND VALUE</h2>
                         <p class="dc_txt about_box_02">&#39; Life essentials make you GOOD &#39;</p>
@@ -42,18 +44,26 @@
                             감각적인 당신을 위해 솔트레인이 제공하는 궁극적인 가치입니다&#46;
                         </p>
                 </div>
-            </v-container>   
-         
+                </div>
+                </v-col>
+                </v-row>
+            </v-container>  
 
-            <v-container class="about_material fluid">
-                <!-- material -->
+            <!-- material -->
+            <v-container class="about_material">
+                <v-row class="material_cont">
+                <v-col>
                 <div class="material_left">
                     <img src="@/assets/about_04.jpg" class="about_material_img">
                 </div>
+                </v-col>
                 
+                <v-col class="align-self-center">
                 <div class="material_right">
                     <h2>MATERIAL</h2>
+                    <div class="txt_wrap">
                     <p class="dc_txt about_box_03">&#39; GRAY SALT &#39;</p>
+                    </div>
                     <p class="line_h mb_32">
                         갯벌을 다져 만든 흙판에서 생산하는 천일염으로 <br>
                         장인이 자연 갯벌을 다져 전통 방식으로 소량 생산한 소금입니다&#46;
@@ -67,22 +77,15 @@
                         다양한 유기화합물의 영양분과 미네랄을 다량 함유하고 있습니다&#46;
                     </p>
                 </div>
+            </v-col>
+            </v-row>
             </v-container>
             <p class="dc_txt S_logo">Saltrain</p>
-
+        </v-main>
     </div>
 </template>
 
-<style scoped>
-
-/* pc 1280px */
-
-
-.dc_txt{font-size:  var(--h1-font-size); 
-    font-family: "urbane-condensed", sans-serif; 
-    font-weight: 700; font-style: normal;
-   }
-
+<style>
 #about{
     width: 100%;
     background: #161616;
@@ -90,57 +93,39 @@
     position: relative;
 }
 
+.v_main{
+    width: 100%;
+    background: #161616;
+    color: #fff;
+ }
 
-v-main{
-   width: 100%;
-   background: #161616;
-   color: #fff;
-}
+.dc_txt{font-size:  var(--h1-font-size); 
+    font-family: "urbane-condensed", sans-serif; 
+    font-weight: 700; font-style: normal;
+   }
 
 h2{
     margin-bottom: 32px;
 }
 
 p{
-    font-size: 1.25rem;
+    font-size: 20px;
 }
 
 .line_h{
     line-height: 1.5;
 }
 
-/* about_goal */
-v-container{
-    display: block;
-    width: 1280px;
-    margin: 0 auto ;
-}
-
-
-/*
-.about_goal{
-    max-width: 1280px;
-    margin: 5rem auto 0;
-    margin-bottom: 7.5rem;
-}*/
-
-.about_goal_box{
-    margin-bottom: 3.75rem;
-}
-
 
 .about_goal_cont{
-    display: flex;
     padding: 5rem 0 7.5rem;
 }
 
-.about_goal_right{
-    margin-left: 100px;
-}
 
 .about_01_img{
     width: 505px;
     height: 632px;
+   /* margin-right: 100px;*/
 }
 
 .about_02_img{
@@ -155,7 +140,7 @@ v-container{
     margin-bottom: 3.75rem;
 }
 
-.saltrain_logo{
+#about .saltrain_logo{
     margin-top: 2.5rem;
     margin-bottom: 1rem;
     font-size: 4rem;
@@ -166,9 +151,10 @@ v-container{
 }
 
 /* about_value */
+
 .about_value{
     width: 100%;
-    height: 692px;
+    height: auto;
     background: url(../assets/about_bg.jpg) no-repeat;
     background-size: cover;
     position: relative;
@@ -178,16 +164,18 @@ v-container{
 
 .about_value_cover{
     width: 100%;
-    height: 692px;
+    height: 100%;
     background: rgba(0, 0, 0, 0.6);;
     position: absolute;
     top: 0;
+    left: 0;
     z-index: 1;
 }
 
 .about_value_cont{
     padding: 7.5rem 0;
-    width: 1280px;
+    max-width: 1280px;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
     position: relative;
@@ -205,7 +193,7 @@ v-container{
     margin-bottom: 32px;
 }
 
-/* material */
+/*material */
 
 .about_material{
     width: 1280px;
@@ -217,8 +205,10 @@ v-container{
 .about_material_img{
     width: 505px;
     height: 470px;
-    margin-right: 100px;
+ /*  margin-right: 100px;  */
 }
+
+
 
 .about_box_03{
     width: 257px;
@@ -234,47 +224,54 @@ v-container{
     bottom: 120px;
 }
 
-/* mobile 600px */
 
 @media (max-width: 600px){
-    p{
-        font-size: 18px;
-    }
-    .S_logo{
-        display: none 
-    }
-   #about .about_goal_cont{
+    .about_01_img{
         display: block;
-        text-align: center;
+        width: 100%;
     }
     .about_goal_right{
-        margin: 0;
-       max-width: 600px;
+        text-align: center;
+        margin-top: 2.5rem;
+    }
+
+    .about_goal_cont{
+        padding-top: 0;
+    }
+
+    .txt_wrap{
+        width: 100%;
     }
     .about_box_01{
-        margin: 0 auto;
+        margin: auto;
     }
-    .about_01_img{
-        width: auto;
-        height: auto;
-        margin-bottom: 80px;
+    p{
+        font-size: 14px;
     }
-    .about_value_cont{
-        max-width: 600px;
-        font-size: 32px;
-    }
-    #about .about__material{
+    .about_02_img{
         display: block;
+        width: auto;
+    }
+
+    .txt_02{
+        margin-bottom: 3.75rem;
+    }
+
+    .material_right{
         text-align: center;
+    }
+
+    .about_material_img{
+        margin-right: 0;
+    }
+
+    .about_box_03{
+        margin: auto;
+    }
+
+    .S_logo{
+        display: none;
     }
 }
 
-
-
 </style>
-
-<script>
-    export default{
-
-    }
-</script>
