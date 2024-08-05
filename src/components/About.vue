@@ -1,12 +1,12 @@
 <template>
     <div id="about">
         <v-main class="v_main">
-            <v-container class="about_goal">
-                <v-row class="d-flex about_goal_cont">
-                    <v-col xs="12" sm="6" md="6">
+            <v-container  class="about_goal">
+                <v-row class="d-flex about_goal_cont mx-auto">
+                    <v-col cols="6" xs="12" sm="12" lg="6" class="about_goal_left fade-down">
                             <img src="@/assets/about_01.jpg" class="about_01_img">
                     </v-col>
-                    <v-col xs="12" sm="6" md="6" class="about_goal_right align-self-center">
+                    <v-col cols="6" xs="12" sm="12" lg="6" class="about_goal_right align-self-center">
                             <h2>BRAND GOAL</h2>
                             <div class="txt_wrap">
                             <p class="dc_txt about_box_01">&#39; KEEP IT CLOSE &#39;</p>
@@ -17,7 +17,7 @@
                                 먹을 수 있는 소금을 바탕으로 한 <br> 라이프스타일 프로덕트를 보다 &#39;더 가까이에서&#39;<br>
                                 즐길 수 있도록 돕는 것은 변함없는 솔트레인의 목표입니다&#46;
                             </p>
-                            <img src="@/assets/about_02.jpg" class="about_02_img">
+                            <img src="@/assets/about_02.jpg" class="about_02_img fade-up">
                     </v-col>
                 </v-row>
             </v-container>
@@ -51,14 +51,14 @@
 
             <!-- material -->
             <v-container class="about_material">
-                <v-row class="material_cont">
+                <v-row class="material_cont mx-auto">
                 <v-col>
                 <div class="material_left">
                     <img src="@/assets/about_04.jpg" class="about_material_img">
                 </div>
                 </v-col>
                 
-                <v-col class="align-self-center">
+                <v-col class="align-self-center" cols="6" xs="12" sm="12" lg="6">
                 <div class="material_right">
                     <h2>MATERIAL</h2>
                     <div class="txt_wrap">
@@ -80,16 +80,84 @@
             </v-col>
             </v-row>
             </v-container>
-            <p class="dc_txt S_logo">Saltrain</p>
+            <div class="dc_txt slide-container">
+                <p class="S_logo slide">Saltrain Saltrain Saltrain Saltrain Saltrain Saltrain Saltrain Saltrain Saltrain Saltrain
+                    Saltrain Saltrain Saltrain Saltrain Saltrain Saltrain Saltrain Saltrain Saltrain Saltrain
+                </p>
+            </div>
         </v-main>
     </div>
 </template>
 
+<script>
+
+</script>
+
 <style>
+/* 기존 스타일 유지 */
+.img {
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.fade-down {
+    animation: fadeDown 1s ease-out forwards;
+}
+
+@keyframes fadeDown {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fade-up {
+    animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide {
+    display: inline-block;
+    animation: slide 20s linear infinite; 
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0%); /* 오른쪽 끝에서 시작 */
+    }
+    to {
+        transform: translateX(-100%); /* 왼쪽 끝으로 이동 */
+    }
+}
+
+
+
+
+
 #about{
     width: 100%;
     background: #161616;
-    height: 2730px;
+    height: 3000px;
     position: relative;
 }
 
@@ -118,14 +186,18 @@ p{
 
 
 .about_goal_cont{
+   width:1280px;
+    margin: 0 auto;
     padding: 5rem 0 7.5rem;
 }
 
+.about_goal_left{
+    width: 100%;
+}
 
 .about_01_img{
-    width: 505px;
-    height: 632px;
-   /* margin-right: 100px;*/
+    object-fit: cover;
+  /* margin-right: 100px;*/
 }
 
 .about_02_img{
@@ -174,7 +246,7 @@ p{
 
 .about_value_cont{
     padding: 7.5rem 0;
-    max-width: 1280px;
+   width: 1280px;
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -202,6 +274,11 @@ p{
     padding: 7.5rem 0;
 }
 
+.material_cont{
+    max-width: 1280px;
+    padding: 7.5rem 0;
+}
+
 .about_material_img{
     width: 505px;
     height: 470px;
@@ -218,15 +295,37 @@ p{
 }
 
 #about .S_logo{
-    font-size: 140px;
-    position: absolute;
-    right: 134px;
-    bottom: 120px;
+    width: 100%;
+    font-size: 120px;
+    position: relative;
+    margin: 120px;
+}
+
+.slide-container {
+    overflow: hidden; /* 컨테이너 밖으로 나가는 내용 숨김 */
+    white-space: nowrap; /* 텍스트가 한 줄로 유지되도록 설정 */
+    width: 100%; /* 컨테이너 너비를 100%로 설정 */
+    box-sizing: border-box;
+  }
+  
+
+@media (min-width: 600px)and (max-width: 900px){
+    #about .S_logo{
+        display: none;
+    }
 }
 
 
-@media (max-width: 600px){
+
+
+/*
+@media (min-width: 600px){
+    .about_goal{
+        padding: 0;
+    }
+    
     .about_01_img{
+        position: relative;
         display: block;
         width: 100%;
     }
@@ -237,6 +336,7 @@ p{
 
     .about_goal_cont{
         padding-top: 0;
+        text-align: center;
     }
 
     .txt_wrap{
@@ -272,6 +372,7 @@ p{
     .S_logo{
         display: none;
     }
-}
+}*/
 
 </style>
+
