@@ -1,5 +1,8 @@
 <template>
     <v-app id="main">
+        <!-- <div class="wait_load">
+            <img src="https://placehold.co/600x400" alt="">
+        </div> -->
             <v-container class="main_slider" fluid>
                 <h2 class="screen_out">솔트레인</h2>
                 <div class="bg_video">
@@ -40,7 +43,7 @@
             </v-container>
             <div class="linear_bg">
                 <v-container class="goods">
-                    <div class="goods_txt text-center align-self-center">
+                    <div class="goods_txt">
                         <h2>소금으로부터 개발된 생활 필수품</h2>
                         <p>
                             소금은 지상에서 먹을 수 있는 유일한 암석이며
@@ -192,6 +195,7 @@
 }
 
 .goods_txt {
+    text-align: center;
     position: absolute;
     z-index: 5;
     top: 50%;
@@ -263,10 +267,6 @@
     font-weight: 700;
     font-size: var(--h4-font-size);
     color: var(--white-color);
-}
-
-.products_txt a span {
-    padding-left: 2rem;
 }
 
 .deco_big_logo {

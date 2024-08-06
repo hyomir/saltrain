@@ -6,6 +6,7 @@ import Collection from '@/components/Collection.vue'
 import About from '@/components/About.vue'
 import Community from '@/components/Community.vue'
 import Login from '@/components/Login.vue'
+import Detail from '@/components/Detail.vue'
 
 
 const router = createRouter({
@@ -45,6 +46,11 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/detail',
+      name: 'detail',
+      component: Detail
     }
     
   ]
