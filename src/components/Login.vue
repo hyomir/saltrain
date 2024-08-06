@@ -20,9 +20,9 @@
                 <p class="search_id"><a href="https://saltrain.kr/member/id/find_id.html">아이디찾기</a></p>
                 <p class="search_pwd"><a href="https://saltrain.kr/member/passwd/find_passwd_info.html">비밀번호찾기</a></p>
                 <p class="join_us"><a href="https://saltrain.kr/member/agreement.html">회원가입</a></p>
-             </div>
+            </div>
 
-             <a href="#none">
+            <a href="#none">
                 <div class="login_ver">
                     <img src="@/assets/naver_logo.png">
                     <p>네이버로 로그인</p>
