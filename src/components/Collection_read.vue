@@ -30,57 +30,61 @@
     const modules = import.meta.glob("../assets/collection_images/*.jpg", { eager: true });
 
     const images = [];
-    const Collection_read = [];
-    var i = 0;
 
     //이미지 및 링크 설정
     for (const img in modules) {
-        var Collection_read_item = "/Collection_read?read_number=" + i
-        Collection_read.push(Collection_read_item);
         images.push(modules[img].default);
-        i++
     }
 
+    var now_link = window.location.search;
+
+    const params = new URLSearchParams(now_link);
+
+    const read_number = params.get('read_number');
+    function go_back(){
+        this.$router.go(-1);
+    }
 </script>
 
 <template>
-    <div id="collection">
-        <ul class="collection_box">
-            <li
-            v-for="(img, index) of images"
-             :key="index"
-             class="collection_item">
-            <a :href="Collection_read[index]">
-                <img :src="img" />
-                <p>{{collection_item_list[index].name}}</p>
-            </a>
-            </li>
-        </ul>
+    <div>
+        <h2>{{collection_item_list[read_number].name}}</h2>
+        <div class="read_box">
+            <!-- 임시 이미지 -->
+            <img 
+            :src="images[read_number]"
+            alt=""
+            >
+            <p class="bottom_menu">
+                <a href="/collection"
+                class="collection_back"
+                >뒤로가기</a>
+            </p>
+        </div>
     </div>
 </template>
 
 <style scoped>
+    .read_box{
+        margin: 0 auto;
+        max-width: 1280px;
+    }
+    .read_box img{
+        margin: 0 auto;
+    }
 
-    img{
-        width: 100%;
+    .bottom_menu{
+        margin-top: 28px;
+        text-align: right
     }
-    a{
-        color: black;
-    }
-    a:hover{
-        color: #666666;
-    }
-    .collection_box{
-        display: grid;
-        grid-template-columns: 30% 30% 30%;
-        justify-content: space-evenly;
-    }
-    .collection_item{
-        text-align: center;
+
+    .collection_back{
+        padding: 8px 20px;
+        margin-right: 10px;
+        background: #000000;
+        color: #fff;
+        font-size: 1.25rem;
         margin-bottom: 10%;
-    }
-    .collection_item img{
-        margin-bottom: 8px;
     }
 
 </style>
