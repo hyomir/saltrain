@@ -1,21 +1,27 @@
 <template>
     <v-app id="main">
         <!-- <div class="wait_load">
-            <img src="https://placehold.co/600x400" alt="">
+            <div class="load_cont">
+                <h1>로딩페이지</h1>
+            </div>
         </div> -->
-            <v-container class="main_slider" fluid>
-                <h2 class="screen_out">솔트레인</h2>
-                <div class="bg_video">
-                    <video class="bg_video_content" autoplay muted loop>
-                        <source src="@/assets/main_img/waves.mp4" type="video/mp4"/>
-                        Your browser is not supported!
-                    </video>
-                </div>
-                <div class="box_logo">
-                    <img src="@/assets/main_img/logo_square.svg" alt="">
+            <v-container class="main_slider fullPage" fluid>
+                <div class="slider_wrap">
+                    <h2 class="screen_out">솔트레인</h2>
+                    <div class="bg_video">
+                        <video class="bg_video_content" autoplay muted loop>
+                            <source src="@/assets/main_img/waves.mp4" type="video/mp4"/>
+                            Your browser is not supported!
+                        </video>
+                    </div>
+                    <div class="box_logo">
+                        <img src="@/assets/main_img/logo_square.svg" alt="">
+                    </div>
                 </div>
             </v-container>
-            <v-container class="brand text-center">
+            <v-container class="fullPage scrollSafe">
+            </v-container>
+            <v-container class="brand fullPage panel text-center">
                 <v-row>
                     <v-col cols="12">
                         <h2 class="screen_out">브랜드 소개</h2>
@@ -37,15 +43,17 @@
                 </v-row>
                     <v-row>
                         <v-col md="8" offset-md="2">
+                            <div class="wrapper">
                             <img src="@/assets/main_img/brand.png"/>
+                            </div>
                         </v-col>
                     </v-row>
             </v-container>
             <div class="linear_bg">
-                <v-container class="goods">
+                <v-container class="goods goodsUp">
                     <div class="goods_txt">
                         <h2>소금으로부터 개발된 생활 필수품</h2>
-                        <p>
+                        <p class="reveal">
                             소금은 지상에서 먹을 수 있는 유일한 암석이며
                             사람에게 가장 필요한 무기질 중 하나입니다.
                             <br>
@@ -56,17 +64,37 @@
                             효과적인 천연 살균, 소독제로 사용할 수 있습니다.
                         </p>
                     </div>
-                    <div class="goods_list">
-                        <div class="left_img">
-                            <div class="img_card"><img src="@/assets/main_img/goods_01.png" alt=""></div>
-                            <div class="img_card"><img src="@/assets/main_img/goods_02.png" alt=""></div>
-                            <div class="img_card"><img src="@/assets/main_img/goods_03.png" alt=""></div>
-                        </div>
-                        <div class="right_img">
-                            <div class="img_card"><img src="@/assets/main_img/goods_04.png" alt=""></div>
-                            <div class="img_card"><img src="@/assets/main_img/goods_05.png" alt=""></div>
-                            <div class="img_card"><img src="@/assets/main_img/goods_06.png" alt=""></div>
-                        </div>
+                    <div class="goods_list panel">
+                            <div id="del1" class="img_card" data-scrub="0.3">
+                                <div class="inner-container">
+                                    <img src="@/assets/main_img/goods_01.png"/>
+                                    </div>
+                                </div>
+                            <div id="del2" class="img_card" data-scrub="0.5">
+                                <div class="inner-container">
+                                    <img src="@/assets/main_img/goods_02.png"/>
+                                    </div>
+                                    </div>
+                            <div id="del3" class="img_card" data-scrub="1">
+                                <div class="inner-container">
+                                    <img src="@/assets/main_img/goods_03.png"/>
+                                </div>
+                            </div>
+                            <div id="del4" class="img_card" data-scrub="0.7">
+                                <div class="inner-container">
+                                    <img src="@/assets/main_img/goods_04.png" alt="">
+                                </div>
+                            </div>
+                            <div id="del5" class="img_card" data-scrub="0.5">
+                                <div class="inner-container">
+                                    <img src="@/assets/main_img/goods_05.png" alt="">
+                                </div>
+                            </div>
+                            <div id="del6" class="img_card" data-scrub="1">
+                                <div class="inner-container">
+                                    <img src="@/assets/main_img/goods_06.png" alt="">
+                                </div>
+                            </div>
                     </div>
                 </v-container>
                 <v-container class="collaboration">
@@ -86,193 +114,176 @@
                                 </ul>
                             </div>
                 </v-container>
-                <v-container class="products">
+                <v-container class="products" fluid>
                                 <div class="products_txt">
                                     <h2>Saltrain Products</h2>
-                                    <a href="#none">more <span>+</span></a>
+                                    <a href="#none">more<span>+</span></a>
                                 </div>
-                            <div class="products_list" fluid>
-                                <ul class="products_slider d-flex">
-                                    <li><a href="#none"><img src="@/assets/main_img/products_01.png" alt=""></a></li>
-                                    <li><a href="#none"><img src="@/assets/main_img/products_02.png" alt=""></a></li>
-                                    <li><a href="#none"><img src="@/assets/main_img/products_03.png" alt=""></a></li>
-                                    <li><a href="#none"><img src="@/assets/main_img/products_04.png" alt=""></a></li>
-                                    <li><a href="#none"><img src="@/assets/main_img/products_05.png" alt=""></a></li>
-                                    <li><a href="#none"><img src="@/assets/main_img/products_06.png" alt=""></a></li>
-                                </ul>
+                            <div class="products_list">
+                                <div class="products_slider d-flex">
+                                    <div class="slide_cont"><a href="#none"><img class="test" src="@/assets/main_img/products_01.png" alt=""></a></div>
+                                    <div class="slide_cont"><a href="#none"><img src="@/assets/main_img/products_02.png" alt=""></a></div>
+                                    <div class="slide_cont"><a href="#none"><img src="@/assets/main_img/products_03.png" alt=""></a></div>
+                                    <div class="slide_cont"><a href="#none"><img src="@/assets/main_img/products_04.png" alt=""></a></div>
+                                    <div class="slide_cont"><a href="#none"><img src="@/assets/main_img/products_05.png" alt=""></a></div>
+                                    <div class="slide_cont"><a href="#none"><img src="@/assets/main_img/products_06.png" alt=""></a></div>
+                                </div>
                             </div>
-                    <div class="deco_big_logo"><img src="@/assets/main_img/logo_lx_white.svg" alt=""></div>
+                                    <v-row>
+                        <v-col cols="12">
+                            <div class="deco_big_logo"><img src="@/assets/main_img/logo_lx_white.svg" alt=""></div>
+                        </v-col>
+                    </v-row>
                 </v-container>
             </div>
     </v-app>
 </template>
-<style scoped>
-.main_slider {
-    padding: 0;
+<style scoped>  
+@import url('@/assets/css/main.css');
+.goods_list{
+    position: relative;
+}
+
+.img_card{
+width: 250px;
+height: 250px;  
+position: absolute;
+}
+
+.img_card .inner-container {
+    will-change: transform;
+}
+
+.img_card img {
     max-width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: var(--k900-color);
-    margin-bottom: var(--large-bottom);
-    position: relative;
+    will-change: transform;
 }
 
-.bg_video {
-    height: 100vh;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: 1;
+#del1 {
+    top: 50vh;
+    left: 10vw;
+}
+#del2 {
+    top: 80vh;
+    left: 60vw;
+}
+#del3 {
+    top: 100vh;
+    left: 30vw;
+}
+#del4{
+    top: 60vh;
+    right: 10vw;
+}
+#del5{
+    top: 110vh;
+    right: 60vw;
+}
+#del6{
+    top: 120vh;
+    right: 30vw;
 }
 
-.bg_video_content {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.box_logo{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    mix-blend-mode: difference;
-}
-.box_logo img{
-    width:100%;
-}
-.brand{
-    margin-bottom: var(--large-bottom);
-}
-.brand img{
-    width:100%;
-}
-.brand_txt {
-    margin-bottom: var(--small-bottom);
-}
-
-.brand_txt h3 {
-    display: block;
-    font-size: var(--h4-font-size);
-    font-family: "urbane-condensed", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 0;
-    margin-bottom: var(--small-bottom);
-}
-
-.brand_txt span {
-    color: var(--white-color);
-    padding: 0 40px;
-    box-sizing: border-box;
-    background: var(--b900-color);
-}
-
-.brand_txt h2 {
-    padding-top: var(--s-bottom);
-    line-height: 3rem;
-    margin-bottom: var(--small-bottom);
-}
-
-.linear_bg {
-    width: 100%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(52, 52, 52, 1) 63%, rgba(26, 81, 230, 1) 100%);
-    color: var(--white-color);
-    border-radius: 2em 2em 0 0;
-}
-
-/* 3.goods */
-.goods {
-    padding: var(--large-bottom) 0;
-    box-sizing: border-box;
-    position: relative;
-}
-
-.goods h2 {
-    margin-bottom: var(--small-bottom);
-}
-
-.goods_txt {
-    text-align: center;
-    position: absolute;
-    z-index: 5;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.goods_list {
-    height: 100vh;
-    position: relative;
-    z-index: 3;
-}
-
-.left_img {
-    position: absolute;
-    left: 0;
-}
-
-.right_img {
-    position: absolute;
-    right: 0;
-}
-
-.goods_list img{
-    width: 100%;
-}
-.collaboration{
-    padding: var(--medium-bottom) 0;
-    box-sizing: border-box;
-}
-
-.collabo_txt span {
-    width: 428px;
-    padding: 0 40px;
-    box-sizing: border-box;
-    background: var(--b900-color);
-}
-
-.collabo_txt p {
-    font-size: var(--h4-font-size);
-    line-height: 1.875rem;
-    padding-top: 3rem;
-    box-sizing: border-box;
-    margin-bottom: var(--large-bottom);
-}
-
-.collabo_slider li a {
-    display: block;
-}
-
-/* 5.products */
-.products {
-    padding: var(--medium-bottom) 0;
-}
-
-.products_txt {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: var(--medium-bottom);
-}
-
-.products_txt a {
-    display: block;
-    width: 120px;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid var(--white-color);
-    font-family: "urbane-condensed", sans-serif;
-    font-weight: 700;
-    font-size: var(--h4-font-size);
-    color: var(--white-color);
-}
-
-.deco_big_logo {
-    padding-bottom: var(--xl-bottom);
-}
-.deco_big_log img{
-    width: 100%;
-}
 </style>
+<script>
+/*gsap 추가*/
+document.addEventListener("DOMContentLoaded", (event) => {
+gsap.registerPlugin(ScrollTrigger,ScrollToPlugin)
+
+/* lenis추가 */
+const lenis = new Lenis({
+lerp: 0.07
+});
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
+
+/*로고 커지기*/
+
+
+/*brand*/
+var panels = gsap.utils.toArray(".panel");
+panels.pop();
+panels.forEach((panel, i) => {
+let tl = gsap.timeline({
+    scrollTrigger:{
+    trigger: panel,
+    start: "bottom center",
+    pinSpacing: false,
+    pin: true,
+    scrub: true,
+    // markers: true,
+    onRefresh: () => gsap.set(panel, {transformOrigin: "center " + (panel.offsetHeight - window.innerHeight / 2) + "px"})
+    }
+});
+
+// 이미지 줄어들 때 애니메이션
+tl.fromTo(panel, 1, {y:0, rotate:0, scale:1, opacity:1}, {y:0, rotateX:0, scale:0.8, opacity:1}, 0)
+    .to(panel, 0.1, {opacity:0})
+});
+
+// 굿즈
+//섹션 고정
+const goods =[]
+let goodsUp = gsap.utils.toArray('.goodsUp');
+goodsUp.forEach((goods, i) => {
+let goodTl = gsap.timeline({
+    scrollTrigger:{
+        trigger:goodsUp,
+        start: "top top",
+        end:"+=200%",
+        pin: true,
+        scrub: true,
+        markers:true,
+    }})
+    
+})
+
+//이미지 움직이기
+let delSections = gsap.utils.toArray(".img_card");
+
+delSections.forEach((section, i) => {
+let imageAnim = gsap.to(section.querySelectorAll(".img_card img"), {
+    y: "-100vh",
+    ease: "none",
+    paused: true
+});
+
+let progressTo = gsap.quickTo(imageAnim, "progress", {ease: "power3", duration: parseFloat(section.dataset.scrub) || 0.1});
+
+gsap.to(section.querySelector(".innerContainer"), {
+    y: "100vh",
+    ease: "none",
+    scrollTrigger: {
+    scrub: true,
+    trigger: section,
+    start: "top bottom",
+    end: "bottom top",
+    markers:true,
+    onUpdate: self => progressTo(self.progress)
+    }
+});
+
+});
+
+gsap
+    .timeline({
+    scrollTrigger: {
+        trigger: ".slider_wrap",
+        start: "center center",
+        end: "+=120%",
+        pin: true,
+        scrub: true,
+        // markers: true
+    }
+    })
+    .to(".box_logo", {
+    scale: 12,
+    z: 350,
+    transformOrigin: "center center",
+    ease: "power2.inOut"
+    })
+
+});
+</script>

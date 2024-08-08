@@ -7,8 +7,8 @@
   </v-app>
 </template>
 <style>
-@import url('../src/assets/reset.css');
-@import url('../src/assets/common.css');
+@import url('../src/assets/css/reset.css');
+@import url('../src/assets/css/common.css');
 </style>
 
 <script>
