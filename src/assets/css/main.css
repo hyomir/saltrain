@@ -8,10 +8,6 @@
     align-items: center;
 }
 
-.fullPage{
-    height: 100vh;
-    top:-40px;
-}
 .main_slider, .bg_video{
     position: relative;
     width: 100%;
@@ -57,10 +53,11 @@
 .scrollSafe{
     margin: 0;
     padding: 0;
-    height: calc(100vh/2);
+    height: calc(100vh);
 }
 
 .brand{
+    height: 100vh;
     margin-bottom: var(--large-bottom);
 }
 .brand img{
@@ -93,11 +90,6 @@
     margin-bottom: var(--small-bottom);
 }
 
-.panel {
-    min-height: calc(100vh - 64px);
-    overflow:hidden;
-}
-
 .linear_bg {
     width: 100%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(52, 52, 52, 1) 63%, rgba(26, 81, 230, 1) 100%);
@@ -111,6 +103,8 @@
     padding: var(--large-bottom) 0;
     box-sizing: border-box;
     position: relative;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .goods h2 {
@@ -132,25 +126,60 @@
     z-index: 3;
 }
 
-.left_img {
+.img_card{
+    width: 250px;
+    height: 250px;  
     position: absolute;
-    left: 0;
-}
-
-.right_img {
-    position: absolute;
-    right: 0;
-}
+    }
+    
+    .img_card .inner-container {
+        will-change: transform;
+    }
+    
+    .img_card img {
+        max-width: 100%;
+        will-change: transform;
+    }
+    
+    #del1 {
+        top: 50vh;
+        left: 10vw;
+    }
+    #del2 {
+        top: 80vh;
+        left: 60vw;
+    }
+    #del3 {
+        top: 100vh;
+        left: 30vw;
+    }
+    #del4{
+        top: 60vh;
+        right: 10vw;
+    }
+    #del5{
+        top: 110vh;
+        right: 60vw;
+    }
+    #del6{
+        top: 120vh;
+        right: 30vw;
+    }
 
 .goods_list img{
     width: 100%;
 }
 
-
 /* 4.collabo */
 .collaboration{
+    height: 100vh;
     padding: var(--medium-bottom) 0;
     box-sizing: border-box;
+}
+
+.collabo_txt_wrap{
+    max-width: 1280px;
+    margin: 0 auto; 
 }
 
 .collabo_txt span {
@@ -167,11 +196,36 @@
     box-sizing: border-box;
     margin-bottom: var(--large-bottom);
 }
-
+.collabo_list{
+    width: 100vw;
+    overflow: hidden;
+}
+.collabo_inner{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 456px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.collabo_slider{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+}
+.collabo_slider li{
+    overflow: hidden;
+    margin-right: 60px;
+}
 .collabo_slider li a {
+    width: 820px;
     display: block;
 }
-
+.collabo_slider img{
+    width: 100%;
+}
 /* 5.products */
 .products {
     padding: var(--medium-bottom) 0;
@@ -210,7 +264,8 @@
 }
 
 .deco_big_logo {
-    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
     padding-bottom: var(--xl-bottom);
 }
 
