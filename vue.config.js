@@ -1,4 +1,8 @@
-module.exports = {
-   outputDir: './docs',
-    publicPath: '/saltrain/'
+
+  module.exports = {
+    outputDir: 'dist',
+    assetsDir: 'assets',
+    publicPath: process.env.NODE_ENV === 'production'
+      ? '/saltrain/'
+      : '/'
 };
