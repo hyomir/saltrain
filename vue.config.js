@@ -1,4 +1,4 @@
 module.exports = {
-    outputDir: './docs',
-    publicPath: '/<saltrain>/'
-}
+  publicPath: process.env.NODE_ENV === "production" ? "/saltrain/" : "/",
+  outputDir: "docs",
+};
