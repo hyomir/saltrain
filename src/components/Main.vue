@@ -5,7 +5,7 @@
                 <h1>로딩페이지</h1>
             </div>
         </div> -->
-            <v-container class="main_slider fullPage" fluid>
+            <v-container class="main_slider" fluid>
                 <div class="slider_wrap">
                     <h2 class="screen_out">솔트레인</h2>
                     <div class="bg_video">
@@ -19,9 +19,9 @@
                     </div>
                 </div>
             </v-container>
-            <v-container class="fullPage scrollSafe">
+            <v-container class="scrollSafe">
             </v-container>
-            <v-container class="brand fullPage panel text-center">
+            <v-container class="brand panel text-center">
                 <v-row>
                     <v-col cols="12">
                         <h2 class="screen_out">브랜드 소개</h2>
@@ -97,21 +97,28 @@
                             </div>
                     </div>
                 </v-container>
-                <v-container class="collaboration">
-                            <h2 class="screen_out">협업</h2>
-                            <div class="collabo_txt text-center">
-                                <span class="dc_txt">KEEP IT CLOSE</span>
-                                <p>먹을 수 있는 소금을 바탕으로 한 라이프스타일 제품을<br>
-                                    보다 ‘더 가까이에서' 즐길 수 있도록<br>
-                                    돕는 것은 변함없는 솔트레인의 목표입니다.
-                                </p>
+                <v-container class="collaboration" fluid>
+                            <div class="collabo_txt_wrap">
+                                <h2 class="screen_out">협업</h2>
+                                <div class="collabo_txt text-center">
+                                    <span class="dc_txt">KEEP IT CLOSE</span>
+                                    <p>먹을 수 있는 소금을 바탕으로 한 라이프스타일 제품을<br>
+                                        보다 ‘더 가까이에서' 즐길 수 있도록<br>
+                                        돕는 것은 변함없는 솔트레인의 목표입니다.
+                                    </p>
+                                </div>
                             </div>
-                            <div class="collabo_list" fluid>
-                                <ul class="collabo_slider d-flex">
-                                    <li class="mr-16"><a href="#none"><img src="@/assets/main_img/collabo_01.png" alt=""></a></li>
-                                    <li class="mr-16"><a href="#none"><img src="@/assets/main_img/collabo_02.png" alt=""></a></li>
-                                    <li class="mr-16"><a href="#none"><img src="@/assets/main_img/collabo_03.png" alt=""></a></li>
-                                </ul>
+                            <div class="collabo_list">
+                                <div class="collabo_inner">
+                                    <ul class="collabo_slider">
+                                        <li><a href="#none"><img src="@/assets/main_img/collabo_01.png" alt=""></a></li>
+                                        <li><a href="#none"><img src="@/assets/main_img/collabo_02.png" alt=""></a></li>
+                                        <li><a href="#none"><img src="@/assets/main_img/collabo_03.png" alt=""></a></li>
+                                        <li><a href="#none"><img src="@/assets/main_img/collabo_04.png" alt=""></a></li>
+                                        <li><a href="#none"><img src="@/assets/main_img/collabo_05.png" alt=""></a></li>
+                                        <li><a href="#none"><img src="@/assets/main_img/collabo_06.png" alt=""></a></li>
+                                    </ul>
+                                </div>
                             </div>
                 </v-container>
                 <v-container class="products" fluid>
@@ -120,16 +127,44 @@
                                     <a href="#none">more<span>+</span></a>
                                 </div>
                             <div class="products_list">
+                                <button class="slider-prev">Previous</button>
+                                <button class="slider-next">Next</button>
                                 <div class="products_slider d-flex">
-                                    <div class="slide_cont"><a href="#none"><img class="test" src="@/assets/main_img/products_01.png" alt=""></a></div>
-                                    <div class="slide_cont"><a href="#none"><img src="@/assets/main_img/products_02.png" alt=""></a></div>
-                                    <div class="slide_cont"><a href="#none"><img src="@/assets/main_img/products_03.png" alt=""></a></div>
-                                    <div class="slide_cont"><a href="#none"><img src="@/assets/main_img/products_04.png" alt=""></a></div>
-                                    <div class="slide_cont"><a href="#none"><img src="@/assets/main_img/products_05.png" alt=""></a></div>
-                                    <div class="slide_cont"><a href="#none"><img src="@/assets/main_img/products_06.png" alt=""></a></div>
+                                    <div class="slide_cont">
+                                        <a href="#none" class="cont_ref">
+                                            <img src="@/assets/main_img/products_01.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="slide_cont">
+                                        <a href="#none" class="cont_ref">
+                                            <img src="@/assets/main_img/products_02.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="slide_cont">
+                                        <a href="#none" class="cont_ref">
+                                            <img src="@/assets/main_img/products_03.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="slide_cont">
+                                        <a href="#none" class="cont_ref">
+                                            <img src="@/assets/main_img/products_04.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="slide_cont">
+                                        <a href="#none" class="cont_ref">
+                                            <img src="@/assets/main_img/products_05.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="slide_cont">
+                                        <a href="#none" class="cont_ref">
+                                            <img src="@/assets/main_img/products_06.png" alt="">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                                    <v-row>
+                </v-container>
+                <v-container class="mx">
+                    <v-row>
                         <v-col cols="12">
                             <div class="deco_big_logo"><img src="@/assets/main_img/logo_lx_white.svg" alt=""></div>
                         </v-col>
@@ -140,50 +175,19 @@
 </template>
 <style scoped>  
 @import url('@/assets/css/main.css');
-.goods_list{
-    position: relative;
-}
 
-.img_card{
-width: 250px;
-height: 250px;  
-position: absolute;
+.slider-prev {
+  position:absolute;
+  z-index:1;
+  top:50%;
+  left:4%;
 }
-
-.img_card .inner-container {
-    will-change: transform;
+.slider-next {
+  position:absolute;
+  z-index:1;
+  top:50%;
+  right:4%;
 }
-
-.img_card img {
-    max-width: 100%;
-    will-change: transform;
-}
-
-#del1 {
-    top: 50vh;
-    left: 10vw;
-}
-#del2 {
-    top: 80vh;
-    left: 60vw;
-}
-#del3 {
-    top: 100vh;
-    left: 30vw;
-}
-#del4{
-    top: 60vh;
-    right: 10vw;
-}
-#del5{
-    top: 110vh;
-    right: 60vw;
-}
-#del6{
-    top: 120vh;
-    right: 30vw;
-}
-
 </style>
 <script>
 /*gsap 추가*/
@@ -199,50 +203,39 @@ gsap.ticker.add((time)=>{
   lenis.raf(time * 1000)
 })
 
-/*로고 커지기*/
-
-
 /*brand*/
 var panels = gsap.utils.toArray(".panel");
 panels.pop();
 panels.forEach((panel, i) => {
 let tl = gsap.timeline({
     scrollTrigger:{
-    trigger: panel,
-    start: "bottom center",
-    pinSpacing: false,
+    trigger: ".brand",
+    start: "top top",
+    end:"300%",
     pin: true,
     scrub: true,
-    // markers: true,
-    onRefresh: () => gsap.set(panel, {transformOrigin: "center " + (panel.offsetHeight - window.innerHeight / 2) + "px"})
     }
 });
-
 // 이미지 줄어들 때 애니메이션
-tl.fromTo(panel, 1, {y:0, rotate:0, scale:1, opacity:1}, {y:0, rotateX:0, scale:0.8, opacity:1}, 0)
+tl.fromTo(panel, 1, {y:0, rotate:0, scale:1, opacity:1},
+{y:0, rotateX:0, scale:0.8, opacity:1}, 0)
     .to(panel, 0.1, {opacity:0})
 });
 
 // 굿즈
 //섹션 고정
-const goods =[]
 let goodsUp = gsap.utils.toArray('.goodsUp');
-goodsUp.forEach((goods, i) => {
 let goodTl = gsap.timeline({
     scrollTrigger:{
         trigger:goodsUp,
         start: "top top",
-        end:"+=200%",
+        end:"+=150%",
         pin: true,
         scrub: true,
-        markers:true,
     }})
-    
-})
 
 //이미지 움직이기
 let delSections = gsap.utils.toArray(".img_card");
-
 delSections.forEach((section, i) => {
 let imageAnim = gsap.to(section.querySelectorAll(".img_card img"), {
     y: "-100vh",
@@ -260,29 +253,92 @@ gsap.to(section.querySelector(".innerContainer"), {
     trigger: section,
     start: "top bottom",
     end: "bottom top",
-    markers:true,
     onUpdate: self => progressTo(self.progress)
     }
 });
 
 });
+// 콜라보레이션
+    let collaboSection = document.querySelector(".collaboration");
+    let collaboSlider = document.querySelector(".collabo_slider");
+    let collaboInner = document.querySelector(".collabo_inner");
 
+let collaboTl = gsap.timeline({
+        scrollTrigger:{
+            trigger:collaboSection,
+            pin: true,
+            scrub: true,
+            start: "top top",
+            end:"+=199%",
+        }
+    })
+
+collaboTl.to(collaboSlider,{
+    x: ()=> -collaboSlider.clientWidth + collaboInner.clientWidth,
+    scrollTrigger: {
+    trigger: collaboSection,
+            start: "center center",
+            end:"+=200%",
+            scrub: 0.3,
+    }
+    })
+
+// 제품 페이지
+let productsSection = document.querySelector(".products")
+let productsSlider = document.querySelector(".products_slider")
+let productsTl = gsap.timeline({
+    scrollTrigger:{
+        trigger:productsSection,
+        start: "top top",
+        end: "bottom bottom",
+        pin:true,
+        scrub:true,
+        markers:true
+    }
+})
+productsSlider.innerHTML += (productsSlider.innerHTML)*2
+const products = gsap.utils.toArray(".slide_cont")
+
+const setAnimation = () => {
+const distance = productsSlider.clientWidth;
+const pdWidth = products[0].clientWidth;
+
+const cloneSlides = () => {
+    const slides = Array.from(productsSlider.children);
+    slides.forEach(slide => {
+        const clone = slide.cloneNode(true);
+        productsSlider.appendChild(clone);
+    });
+};
+// 호출 시점
+cloneSlides();
+gsap.to(products, {
+    repeat: -1,
+    ease: 'none',
+    x: `+=${distance}`,
+    duration: 10,
+    modifiers: {
+        x: gsap.utils.unitize(gsap.utils.wrap(-distance / 2, 0), "px")},
+});
+};
+
+setAnimation();
+// 메인 슬라이더 로고 - 기묘함
+let sliderWrap = gsap.utils.toArray(".slider_wrap");
 gsap
     .timeline({
     scrollTrigger: {
-        trigger: ".slider_wrap",
+        trigger: sliderWrap,
         start: "center center",
-        end: "+=120%",
+        end: "+=150%",
         pin: true,
         scrub: true,
-        // markers: true
     }
     })
     .to(".box_logo", {
     scale: 12,
-    z: 350,
     transformOrigin: "center center",
-    ease: "power2.inOut"
+    ease: "power2.inOut",
     })
 
 });

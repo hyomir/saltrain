@@ -1,13 +1,16 @@
 <template>
     <div id="about">
+        <v-app>
+        <Header></Header>
         <v-main class="v_main">
+            <!-- brand goal -->
             <v-container class="about_goal">
                 <v-row class="d-flex about_goal_cont mx-auto">
-                    <v-col cols="6" xs="12" sm="12" lg="6" class="about_goal_left hidden">
+                    <v-col cols="12" xs="12" sm="12" lg="5" class="about_goal_left hidden_left">
                             <img src="@/assets/about_01.jpg" class="about_01_img">
                     </v-col>
-                    <v-col cols="6" xs="12" sm="12" lg="6" class="about_goal_right align-self-center">
-                        <div class="about_goal_right_top  hidden01">
+                    <v-col cols="12" xs="12" sm="12" lg="7" class="about_goal_right align-self-center">
+                        <div class="about_goal_right_top hidden_in">
                             <h2>BRAND GOAL</h2>
                             <div class="txt_wrap">
                             <p class="dc_txt about_box_01">&#39; KEEP IT CLOSE &#39;</p>
@@ -19,7 +22,7 @@
                                 즐길 수 있도록 돕는 것은 변함없는 솔트레인의 목표입니다&#46;
                             </p>
                         </div>
-                        <div class="about_goal_right_bottom hidden">
+                        <div class="about_goal_right_bottom hidden_right">
                             <img src="@/assets/about_02.jpg" class="about_02_img">
                         </div>
                     </v-col>
@@ -29,15 +32,15 @@
             <!-- brand value -->
             <v-container fluid>
                 <v-row>
-                    <v-col xs="12">
+                    <v-col>
                         <div class="about_value">
                             <div class="about_value_cover"></div>
                                 <div class="about_value_cont">
-                                    <div class="about_value_cont_01 ">
-                                        <h2 class="slideDown">BRAND VALUE</h2>
-                                        <p class="dc_txt about_box_02">&#39; Life essentials make you GOOD &#39;</p>
+                                    <div class="about_value_cont_01 hidden_up">
+                                        <h2 class="slide_Down">BRAND VALUE</h2>
+                                            <p class="dc_txt about_box_02">&#39; Life essentials make you GOOD &#39;</p>
                                     </div>
-                                    <div class="about_value_cont_02 ">
+                                    <div class="about_value_cont_02 hidden_up">
                                         <p class="line_h mb_32">솔트레인이 정의하는 &#39;좋음&#40;GOOD&#41;&#39;은 사용자가 우리의 제품을<br>
                                             보고&#44; 쓰고&#44; 입고&#44; 바르는 모든 과정에서 얻는 긍정적인 감정을 의미합니다&#46;
                                         </p>
@@ -60,14 +63,14 @@
             <!-- material -->
             <v-container class="about_material">
                 <v-row class="material_cont mx-auto">
-                    <v-col cols="6" xs="12" sm="12" lg="6">
-                        <div class="material_left hidden">
+                    <v-col cols="12" xs="12" sm="12" lg="5">
+                        <div class="material_left hidden_down">
                             <img src="@/assets/about_04.jpg" class="about_material_img">
                         </div>
                     </v-col>
                         
-                    <v-col class="align-self-center">
-                        <div class="material_right hidden01">
+                    <v-col cols="12" xs="12" sm="12" lg="7" class="align-self-center">
+                        <div class="material_right hidden_in">
                                 <h2>MATERIAL</h2>
                                 <div class="txt_wrap">
                                 <p class="dc_txt about_box_03">&#39; GRAY SALT &#39;</p>
@@ -94,61 +97,88 @@
                 </p>
             </div>
         </v-main>
+        <Footer></Footer>
+    </v-app>
     </div>
 </template>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+ import Header from '@/components/Header.vue';
+  import Footer from '@/components/Footer.vue';
+
+
+  export default {
+    components: {
+      Header,
+      Footer
+    }
+  }
+  document.addEventListener("DOMContentLoaded", function() {
     // Intersection Observer for .about_goal
     const goalObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
+            const leftElement = entry.target.querySelector('.about_goal_left');
+            const rightTopElement = entry.target.querySelector('.about_goal_right_top');
+            const rightBottomElement = entry.target.querySelector('.about_goal_right_bottom');
+
             if (entry.isIntersecting) {
-                const leftElement = entry.target.querySelector('.about_goal_left');
-                const rightTopElement = entry.target.querySelector('.about_goal_right_top');
-                const rightBottomElement = entry.target.querySelector('.about_goal_right_bottom');
-               
                 if (leftElement) {
-                    leftElement.classList.add('fade-down');
+                    leftElement.classList.add('fade_left');
                 }
 
                 if (rightBottomElement) {
-                    rightBottomElement.classList.add('fade-down');
+                    rightBottomElement.classList.add('fade_right');
 
                     if (rightTopElement) {
-                            rightTopElement.classList.add('fade-in');
-                        }
+                        rightTopElement.classList.add('fade_in');
+                    }
                 }
-                
-                goalObserver.unobserve(entry.target); // Stop observing once the animation is triggered
+            } else {
+                // Scroll 위로 올라가면 효과를 제거
+                if (leftElement) {
+                    leftElement.classList.remove('fade_left');
+                }
+                if (rightBottomElement) {
+                    rightBottomElement.classList.remove('fade_right');
+                }
+                if (rightTopElement) {
+                    rightTopElement.classList.remove('fade_in');
+                }
             }
         });
-    }, { threshold: 0.25 });
+    }, { threshold: 0.4 });
 
     document.querySelectorAll('.about_goal').forEach(element => {
         goalObserver.observe(element);
     });
- 
+
     // Intersection Observer for .about_value
     const valueObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
+            const cont01Element = entry.target.querySelector('.about_value_cont_01');
+            const cont02Element = entry.target.querySelector('.about_value_cont_02');
+
             if (entry.isIntersecting) {
-                const cont01Element = entry.target.querySelector('.about_value_cont_01 ');
-                const cont02Element = entry.target.querySelector('.about_value_cont_02 ');
-                
                 if (cont01Element) {
-                    cont01Element.classList.add('slide-down');
+                    cont01Element.classList.add('fade_down');
                 }
 
                 if (cont02Element) {
                     setTimeout(() => {
-                        cont02Element.classList.add('slide-down');
+                        cont02Element.classList.add('fade_down');
                     }, 500); // 1.5s delay for cont_02 to start after cont_01
                 }
-                
-                valueObserver.unobserve(entry.target); // Stop observing once the animation is triggered
+            } else {
+                // Scroll 위로 올라가면 효과를 제거
+                if (cont01Element) {
+                    cont01Element.classList.remove('fade_down');
+                }
+                if (cont02Element) {
+                    cont02Element.classList.remove('fade_down');
+                }
             }
         });
-    }, { threshold: 0.25 });
+    }, { threshold: 0.4 });
 
     document.querySelectorAll('.about_value').forEach(element => {
         valueObserver.observe(element);
@@ -157,150 +187,152 @@ document.addEventListener("DOMContentLoaded", function() {
     // Intersection Observer for .about_material
     const materialObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
+            const leftElements = entry.target.querySelectorAll('.material_left');
+            const rightElements = entry.target.querySelectorAll('.material_right');
+
             if (entry.isIntersecting) {
-                const leftElements = entry.target.querySelectorAll('.material_left');
-                const rightElements = entry.target.querySelectorAll('.material_right');
-               
                 leftElements.forEach((leftElement, index) => {
                     setTimeout(() => {
-                        leftElement.classList.add('fade-down');
+                        leftElement.classList.add('fade_up');
                     }, index * 500); // Staggered animation for left elements
                 });
 
                 rightElements.forEach((rightElement, index) => {
                     setTimeout(() => {
-                        rightElement.classList.add('fade-in');
+                        rightElement.classList.add('fade_up');
                     }, (index + leftElements.length) * 500); // Staggered animation for right elements, after left elements
                 });
+            } else {
+                // Scroll 위로 올라가면 효과를 제거
+                leftElements.forEach(leftElement => {
+                    leftElement.classList.remove('fade_up');
+                });
 
-                materialObserver.unobserve(entry.target); // Stop observing once the animation is triggered
+                rightElements.forEach(rightElement => {
+                    rightElement.classList.remove('fade_up');
+                });
             }
         });
-    }, { threshold: 0.25 });
+    }, { threshold: 0.4 });
 
     document.querySelectorAll('.about_material').forEach(element => {
         materialObserver.observe(element);
     });
 });
+
 </script>
 
 <style>
-.hidden{
+
+
+
+
+
+/* animation 효과 */
+
+/* 초기 상태 */
+
+.hidden_left{
+    opacity: 0;
+    transition: all 1.5s;
+    transform: translateX(-100%);
+} 
+
+.hidden_right{
+    opacity: 0;
+    transition: all 1.5s;
+    transform: translateX(100%);
+}
+
+.hidden_down{
+    opacity: 0;
+    transition: all 1.5s;
+    transform: translateY(100%);
+}
+
+.hidden_up{
     opacity: 0;
     transition: all 1s;
-    transform: translateX(-100%);
+    transform: translateY(-20px);
 }
 
-/* about animation */
-
-@keyframes fadeDown{
-    from {
-        transform: translateX(0%); /* 오른쪽 끝에서 시작 */
-    }
-    to {
-        transform: translateX(-100%); /* 왼쪽 끝으로 이동 */
-    }
+.hidden_in{
+    opacity: 0;
+    transition: all 1s;
 }
 
-.fade-down{
+
+/* 최종 상태 */
+
+.fade_left{
+    opacity: 1;
+    transform: translateX(0%); 
+}
+
+.fade_right{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade_up{
     opacity: 1;
     transform: translateY(0);
 }
 
-#about .about_goal_left{transition: all 1.5s ease;}
-#about .about_goal_right_top{transition: all 1.5s ease;}
-#about .about_goal_right_bottom{transition: all 2s ease;}
-
-/* value animation */
-
-@keyframes slide-down {
-    from {
-        opacity: 0;
-        transform: translateY(-20px); /* Initial position for animation */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0); /* End position for animation */
-    }
+.fade_down {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.slide-down {
-    animation: slide-down 1s ease-out forwards;
-}
 
-#about .about_value_cont_01,
-#about .about_value_cont_02 {
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-/* material animation */
-
-.hidden01{
-    opacity: 0;
-    transition: all 2s;
-}
-
-.fade-in{
+.fade_in{
     opacity: 1;
 }
 
-#about .material_left {
-   
-    transition: opacity 1s ease-out, transform 1s ease-out;
+/* s_logo 애니메이션 효과 */
+
+.slide-container {
+    overflow: hidden; 
+    white-space: nowrap; 
+    width: 100%; 
+    box-sizing: border-box;
 }
 
-#about .material_right {
-   
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.slideDown {
-    animation: slide 
-}
-
-@keyframes slideDown {
-    from {
-       opacity: 0; 
-    }
-    to {
-        opacity: 1; 
-    }
-}
-
-.slide {
-    display: inline-block;
+.S_logo {
+    display: inline-block; 
     animation: slide 20s linear infinite; 
 }
 
 @keyframes slide {
     from {
-        transform: translateX(0%); /* 오른쪽 끝에서 시작 */
+        transform: translateX(0); 
     }
     to {
-        transform: translateX(-100%); /* 왼쪽 끝으로 이동 */
+        transform: translateX(-100%); 
     }
 }
 
 /* css 효과 */
 
+
+.v_main {
+    padding-top: 0; /* 메인 페이지의 상단 패딩 제거 */
+    padding-bottom: 0; /* 메인 페이지의 하단 패딩 제거 */
+}
+
 #about{
     width: 100%;
     background: #161616;
-    height: 3000px;
     position: relative;
 }
+
+/* reset css */
 
 .v_main{
     width: 100%;
     background: #161616;
     color: #fff;
  }
-
-.dc_txt{font-size:  var(--h1-font-size); 
-    font-family: "urbane-condensed", sans-serif; 
-    font-weight: 700; font-style: normal;
-   }
 
 h2{
     margin-bottom: 32px;
@@ -315,29 +347,37 @@ p{
 }
 
 /* about_goal */
-
 .about_goal_cont{
-   width:1280px;
-    margin: 0 auto;
-    padding: 5rem 0 7.5rem;
+   max-width:1280px;
+   margin: 0 auto;
+   padding: 5rem 0 7.5rem;
 }
 
-.about_goal_left{
+#about .about_goal_left{
     opacity: 1;
     width: 100%;
+    overflow: hidden;
 }
 
-.about_01_img{
+#about .about_goal_right{
+    width: 100%;
+    padding-left: 100px;
+    box-sizing: border-box;
+}
+
+#about .about_goal_left .about_01_img{
+   max-width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
 .about_02_img{
-    width: 635px;
-    height: 410px;
+    width: 100%;
+    height: auto;
 }
 
 .about_box_01{
-    width: 329px;
+    max-width: 329px;
     background:#1A51E6;
     padding: 12px 10px 3px 20px;
     margin-bottom: 3.75rem;
@@ -377,7 +417,6 @@ p{
 
 .about_value_cont{
     padding: 7.5rem 0;
-   width: 1280px;
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -386,10 +425,13 @@ p{
 }
 
 .about_box_02{
-    width: 640px;
+    max-width: 640px;
     margin: 0 auto 3.75rem;
     background:#1A51E6;
-    padding: 15px 12px 10px 15px;
+    padding: 10px 12px 2px 15px;
+    line-height: 1.1; 
+    box-sizing: border-box;
+   
 }
 
 .mb_32{
@@ -399,7 +441,7 @@ p{
 /* material */
 
 .about_material{
-    width: 1280px;
+   max-width: 1280px;
     margin: 0 auto;
     display: flex;
     padding: 7.5rem 0;
@@ -410,11 +452,19 @@ p{
     padding: 7.5rem 0;
 }
 
-.about_material_img{
-    width: 505px;
-    height: 470px;
+.material_left{
+    width: 100%;
 }
 
+.material_left img{
+    width: 100%;
+    height: auto;
+}
+
+.material_right{
+    padding-left: 100px;
+    box-sizing: border-box;
+}
 
 
 .about_box_03{
@@ -432,75 +482,89 @@ p{
 }
 
 .slide-container {
-    overflow: hidden; /* 컨테이너 밖으로 나가는 내용 숨김 */
-    white-space: nowrap; /* 텍스트가 한 줄로 유지되도록 설정 */
-    width: 100%; /* 컨테이너 너비를 100%로 설정 */
+    overflow: hidden; 
+    white-space: nowrap; 
+    width: 100%;
     box-sizing: border-box;
   }
   
+  /* 모바일 버전 미디어 쿼리*/
 
-@media (min-width: 600px)and (max-width: 900px){
+@media screen and (max-width:768px){
+    
+    p{
+        font-size: 14px;
+    }
+
+    .dc_txt{font-size:  1rem; 
+        font-family: "urbane-condensed", sans-serif; 
+        font-weight: 700; font-style: normal;
+       }
+    
+    /* about_goal */
+    .about_goal_cont{
+        max-width:480px;
+         margin: 0 auto;
+         padding: 0;
+         text-align: center;
+     }
+
+     #about .about_goal_right{
+        padding:0;
+        overflow: hidden;
+    }
+
+    .about_01_img{
+        width: 100%;
+       margin-bottom: 40px;
+    }
+
+    .about_box_01{
+        margin: 0 auto;
+    }
+
+    .dc_txt_change{
+        font-size: 2.2rem; 
+        font-family: "urbane-condensed",sans-serif; 
+        font-weight: 700;
+        font-style: normal;
+        height: auto;
+    }
+
+    .material_cont{
+        max-width: 480px;
+        text-align: center;
+        padding: 0;
+    }
+
+    .txt_02{
+        margin-bottom: 80px;
+    }
+
+   #about .about_material{
+        max-width: 480px;
+        margin: 0 auto;
+        display: flex;
+        padding:0 0 80px;
+        box-sizing: border-box;
+    }
+
+    .material_right{
+        padding-left: 0;
+    }
+
+    .about_box_03{
+        margin: auto;
+    }
+   
+
     #about .S_logo{
         display: none;
     }
 }
 
 
-/*
-@media (min-width: 600px){
-    .about_goal{
-        padding: 0;
-    }
-    
-    .about_01_img{
-        position: relative;
-        display: block;
-        width: 100%;
-    }
-    .about_goal_right{
-        text-align: center;
-        margin-top: 2.5rem;
-    }
 
-    .about_goal_cont{
-        padding-top: 0;
-        text-align: center;
-    }
-
-    .txt_wrap{
-        width: 100%;
-    }
-    .about_box_01{
-        margin: auto;
-    }
-    p{
-        font-size: 14px;
-    }
-    .about_02_img{
-        display: block;
-        width: auto;
-    }
-
-    .txt_02{
-        margin-bottom: 3.75rem;
-    }
-
-    .material_right{
-        text-align: center;
-    }
-
-    .about_material_img{
-        margin-right: 0;
-    }
-
-    .about_box_03{
-        margin: auto;
-    }
-
-    .S_logo{
-        display: none;
-    }
-}*/
 
 </style>
 
