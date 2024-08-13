@@ -1,6 +1,5 @@
 <template>
 <div id="header">
-    <v-app>
     <v-app-bar app color="#000" height="80px">
         <nav>
             <button type="button" class="all_menu" @click="openMenu"><a href="#none"><img src="@/assets/menu_w300.svg" alt="전체메뉴"></a></button>
@@ -17,17 +16,6 @@
                 <div class="util_menu">
                     <button type="button" class="language_menu"><a href="#none"><img src="@/assets/language_w300.svg" alt="언어"></a></button>
                     <button type="button" class="search_menu" @click="openPopup"><a href="#none"><img src="@/assets/search_w300.svg" alt="검색"></a></button>
-                    <div class="search" >
-                        <a href="#none">
-                            <form name="search_input" >
-                                <input type="text" placeholder="입력하기" class="search_input">
-                            </form>
-                            <button type="submit"><img src="@/assets/search_w300.svg" @click="searchBarClose" alt="검색"></button>        
-                        </a>
-                </div>
-
-                
-
                     <button type="button" class="login_menu"><a href="Login"><img src="@/assets/person_w300.svg" alt="로그인"></a></button>
                     <button type="button" class="cart_menu"><a href="#none"><img src="@/assets/shopping_bag_w300.svg" alt="장바구니"></a></button>
                 </div>
@@ -96,7 +84,6 @@
             <button type="button" class="language_menu"><a href="#none"><img src="@/assets/language_black.svg" alt="언어"></a></button>
         </div>  
     </div>
-</v-app>
 </div>
 </template>
     
@@ -208,6 +195,10 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+.v-main{
+  height: 0;
+}
+
 /* reset */
 .gnb>ul>li>a{
     font-weight: bold;
@@ -215,14 +206,11 @@ onUnmounted(() => {
     font-size:1.25rem; /*20px*/
 }
 
-a:hover{
-    color: #fff;
-   /* font-weight: bold; */
-}
-
 #header{
     width: 100%;
     background: #000;
+    margin: 0;
+    padding: 0;
 }
 
 .all_menu,.sub_menu{
@@ -242,6 +230,7 @@ h1 img {
 nav{
     width: 1280px;
     margin: 0 auto;
+    height: 80px;
    
 }
 
@@ -271,25 +260,23 @@ nav{
    color: #1A51E6;
 }
 
+.util_menu{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .util_menu button{
-    margin-right: 16px;
+  margin-right: 16px;
 }
 
 .util_menu button:hover{
-    transition: all 0.3s;
-    color: #1A51E6;
-    filter: brightness(1.2); /* 추가적인 시각적 효과 */
+  filter: invert(37%) sepia(100%) saturate(5591%) hue-rotate(214deg) brightness(89%) contrast(101%);
+  transition: all step-end;
 }
-
 
 .util_menu button:last-child{
     margin-right: 0;
-}
-
-.util_menu{
-    display: flex;
-    align-items: center;
-    position: relative;
 }
 
 .util_menu button img{
@@ -383,7 +370,11 @@ nav{
 
 
 @media (max-width: 768px) {
-    nav{
+  nav{
+    height: 60px;
+  }  
+  
+  .gnb{
         width: 100%;
         height: 60px;
     }
@@ -392,10 +383,6 @@ nav{
         justify-content: center;
         text-align: center;
         margin: auto;
-    }
-
-    .gnb{
-        height: 60px;
     }
 
     .gnb ul{
@@ -411,6 +398,9 @@ nav{
     }
     .util_menu>button>a>img{
         width: 48px;
+        position: relative;
+        top: 3px;
+        right:-15px;
     }
     .all_menu{
         display: inline-block;
@@ -447,6 +437,7 @@ nav{
 
     .sub_menu>ul>li>a:hover{
         color: #1A51E6;
+        transition: all 0.3s;
     }
 
     .sub_menu>ul>li>a>img{
@@ -470,6 +461,7 @@ nav{
 
     .sub_menu ul ul a:hover{
         color: #1A51E6;
+        transition: all 0.3s;
     }
 
     .sub_menu .close_menu{
@@ -493,10 +485,6 @@ nav{
     .cart_menu{
         margin-right: 264px;
     }
-/*
-    .hidden_menu{
-        display: none;
-    } */
 
     .hidden_menu {
         display: none;
@@ -518,16 +506,9 @@ nav{
       .search{
         width: 100%;
       }
- 
-      .util_menu form img{
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 24px;
-      }
 
       .popup-content {
-        width: 480px;
+        width: 400px;
       }
 }
 

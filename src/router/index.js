@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Main from '@/components/Main.vue'
 import Header from '@/components/Header.vue'
+import Header_white from '@/components/Header_white.vue'
 import Footer from '@/components/Footer.vue'
 import Products from '@/components/Products.vue'
 import Store from '@/components/Store.vue'
@@ -11,6 +12,9 @@ import Community from '@/components/Community.vue'
 import Notice from '@/components/Notice.vue'
 import Login from '@/components/Login.vue'
 import Detail from '@/components/Detail.vue'
+import QnA from '@/components/QnA.vue'
+import Membership from '@/components/Membership.vue'
+import Event from '@/components/Event.vue'
 
 
 const router = createRouter({
@@ -25,6 +29,11 @@ const router = createRouter({
       path: '/header',
       name: 'header',
       component: Header
+    },
+    {
+      path: '/header_white',
+      name: 'header_white',
+      component: Header_white
     },
     {
       path: '/footer',
@@ -75,6 +84,21 @@ const router = createRouter({
       path: '/detail',
       name: 'detail',
       component: Detail
+    },
+    {
+      path: '/qna',
+      name: 'qna',
+      component: QnA
+    },
+    {
+      path: '/membership',
+      name: 'membership',
+      component: Membership
+    },
+    {
+      path: '/event',
+      name: 'event',
+      component: Event
     },
     
   ]
